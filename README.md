@@ -16,7 +16,7 @@ A simple command-line recipe management application built using Python.
 
 ## How to Run
 1. Make sure you have Python installed on your computer.
-2. Put 'main.py' and 'recipe.py' in the same folder.
+2. Put 'main_recipe.py' and 'recipe.py' in the same folder.
 3. Open your terminal in that folder and run:
   
    'python main_recipe.py'
