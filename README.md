@@ -19,4 +19,4 @@ A simple command-line recipe management application built using Python.
 2. Put 'main.py' and 'recipe.py' in the same folder.
 3. Open your terminal in that folder and run:
   
-   'python main.py'
+   'python main_recipe.py'
