@@ -20,10 +20,12 @@ def return_menu():
 class Recipe:
     def __init__(self, name, category, ingredients, instructions=""):
         # comments on variable types/requirements
-        self.name = name
-        self.category = category
-        self.ingredients = ingredients
-        self.instructions = instructions
+
+    
+        self.name = name # Expected to be a string. Recipe title.
+        self.category = category #This is a list of strings
+        self.ingredients = ingredients #This is a list of strings
+        self.instructions = instructions #This is a string. It is optional to add, will otherwise return an empty string.
 
     def print_recipe(self):
         print("Name:", self.name)
@@ -66,7 +68,7 @@ def add_recipe(recipe_list):
         item.strip() for item in ingredients.split(",") if item.strip()
     ]
 
-
+    # Adds a string with instructions. Optional to add. Will otherwise return an empty string.
     instructions = input("Enter instructions (optional): ")
 
     new_recipe = Recipe(name, category, ingredients, instructions)
