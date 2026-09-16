@@ -19,9 +19,8 @@ def return_menu():
 
 class Recipe:
     def __init__(self, name, category, ingredients, instructions=""):
-        # comments on variable types/requirements
-
     
+
         self.name = name # Expected to be a string. Recipe title.
         self.category = category #This is a list of strings
         self.ingredients = ingredients #This is a list of strings
