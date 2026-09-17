@@ -18,12 +18,14 @@ def return_menu():
 
 
 class Recipe:
-    def __init__(self, name, category, ingredients, instructions=""):
+    def __init__(self, name, category, ingredients, amounts, instructions=""):
     
 
         self.name = name # Expected to be a string. Recipe title.
         self.category = category #This is a list of strings
         self.ingredients = ingredients #This is a list of strings
+        self.amounts = amounts #This is a list of strings
+    
         self.instructions = instructions #This is a string. It is optional to add, will otherwise return an empty string.
 
     def print_recipe(self):
@@ -31,10 +33,18 @@ class Recipe:
 
         category_string = ", ".join(self.category)
         print("Category:", category_string)
-        
+
+    
        
-        ingredients_string = ", ".join(self.ingredients)
-        print("Ingredients:", ingredients_string)
+      #  ingredients_string = ", ".join(self.ingredients)
+       # print("Ingredients:", ingredients_string)
+
+        print ("Ingredients: ")
+        for ingredient, amount in zip (self.ingredients, self.amounts):
+            print(f" - {ingredient}: {amount} ")
+
+    
+      
 
         if self.instructions:
             print("Instructions:", self.instructions)
@@ -67,10 +77,15 @@ def add_recipe(recipe_list):
         item.strip() for item in ingredients.split(",") if item.strip()
     ]
 
+    amounts = input("Enter amount (separated by comma): ")
+    amounts = [
+        item.strip() for item in amounts.split(",") if item.strip()
+    ]
+
     # Adds a string with instructions. Optional to add. Will otherwise return an empty string.
     instructions = input("Enter instructions (optional): ")
 
-    new_recipe = Recipe(name, category, ingredients, instructions)
+    new_recipe = Recipe(name, category, ingredients, amounts, instructions)
     recipe_list.append(new_recipe)
     print(f"The recipe '{name}' has been saved!")
 
@@ -99,7 +114,7 @@ def search_recipe(recipe_list):
         return_menu()
         return
 
-    search_word = input("\nEnter search word (name or category): ")
+    search_word = input("\nEnter search word (name or category): ").strip().lower()
     
     found = []
     for recipe in recipe_list:
@@ -149,7 +164,7 @@ def remove_recipe(recipe_list):
  
     #Checks if the users input is a number 
     if option.isdigit():
-        index = int(option) - 1
+        index = int(option) - 1 
         if 0 <= index < len(found):
             recipe_to_remove = found[index]
             recipe_list.remove(recipe_to_remove)
